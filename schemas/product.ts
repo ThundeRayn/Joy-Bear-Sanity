@@ -20,5 +20,12 @@ export default defineType({
       to: [{ type: 'category' }],//multiple categories allowed
       title: 'Category',
     },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: { source: 'title', maxLength: 96 }, //auto generate slug from title
+      validation: (Rule) => Rule.required(),
+    },
   ]
 })
