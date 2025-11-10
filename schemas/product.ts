@@ -14,6 +14,13 @@ export default defineType({
       title: 'Images'
     },
     {
+      name: 'minOrderQuantity',
+      title: 'Minimum Order Quantity (MOQ)',
+      type: 'number',
+      description: 'The smallest quantity customers can order (起订量)',
+      validation: (Rule) => Rule.min(1).integer(),
+    },
+    {
       name: 'category',
       type: 'array',
       of: [
@@ -22,6 +29,16 @@ export default defineType({
          }
       ],
       title: 'Category',
+    },
+    {
+      name: 'tags',
+      type: 'array',
+      of: [
+        { type: 'reference',
+          to: [{ type: 'tags' }]  // reference to tags document
+         }
+      ],
+      title: 'Tags',
     },
     {
       name: 'slug',
