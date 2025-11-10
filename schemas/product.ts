@@ -1,9 +1,11 @@
 import {defineType} from 'sanity'
+import {FaceHappyIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'product',    // internal name (used in queries: _type == "product")
   title: 'Product',   // label shown in Sanity Studio
   type: 'document',   // makes it a top-level document type
+  icon: FaceHappyIcon,
   fields: [
     {name: 'title', type: 'string', title: 'Title'}, // product name
     {name: 'description', type: 'text', title: 'Description'}, // description text
