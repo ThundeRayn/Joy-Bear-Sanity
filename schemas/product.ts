@@ -6,7 +6,6 @@ export default defineType({
   type: 'document',   // makes it a top-level document type
   fields: [
     {name: 'title', type: 'string', title: 'Title'}, // product name
-    {name: 'price', type: 'number', title: 'Price'}, // numeric price
     {name: 'description', type: 'text', title: 'Description'}, // description text
     {
       name: 'images',
@@ -16,8 +15,12 @@ export default defineType({
     },
     {
       name: 'category',
-      type: 'reference',
-      to: [{ type: 'category' }],//multiple categories allowed
+      type: 'array',
+      of: [
+        { type: 'reference',
+          to: [{ type: 'category' }]  // reference to category document
+         }
+      ],
       title: 'Category',
     },
     {
