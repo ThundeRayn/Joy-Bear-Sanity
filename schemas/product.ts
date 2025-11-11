@@ -8,6 +8,7 @@ export default defineType({
   icon: FaceHappyIcon,
   fields: [
     {name: 'title', type: 'string', title: 'Title'}, // product name
+    {name: 'id', type: 'string', title: 'ID'}, // product id
     {name: 'description', type: 'text', title: 'Description'}, // description text
     {
       name: 'images',
@@ -49,5 +50,23 @@ export default defineType({
       options: { source: 'title', maxLength: 96 }, //auto generate slug from title
       validation: (Rule) => Rule.required(),
     },
+    // ✅ New features field
+    {
+      name: 'features',
+      title: 'Product Features',
+      type: 'object',
+      description: 'Select product characteristics',
+      fields: [
+        { name: 'recyclable', title: '♻️ Recyclable Material', type: 'boolean' },
+        { name: 'furry', title: '🧸 Furry / Soft Texture', type: 'boolean' },
+        { name: 'handmade', title: '✋ Handmade', type: 'boolean' },
+        { name: 'safeForKids', title: '👶 Safe for Kids', type: 'boolean' },
+        { name: 'limitedEdition', title: '🌟 Limited Edition', type: 'boolean' },
+      ],
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    }
   ]
 })
